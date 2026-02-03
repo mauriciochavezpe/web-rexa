@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>REXA Operador Logístico</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#0d121b] dark:text-white">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        <!-- Navbar -->
+        <header
+            class="sticky top-0 z-50 w-full border-b border-[#e7ebf3] bg-white/95 dark:bg-[#101622]/95 backdrop-blur px-4 lg:px-10 py-3 shadow-sm">
+            <div class="layout-content-container mx-auto flex max-w-[1280px] items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="text-primary">
+                        <span class="material-symbols-outlined text-4xl">local_shipping</span>
+                    </div>
+                    <h2 class="text-[#0d121b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">REXA
+                        Operador Logístico</h2>
+                </div>
+                <nav class="hidden lg:flex flex-1 justify-end gap-8">
+                    <div class="flex items-center gap-9">
+                        <a class="text-[#0d121b] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                            href="#">Inicio</a>
+                        <a class="text-[#0d121b] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                            href="#">Nosotros</a>
+                        <a class="text-[#0d121b] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                            href="#">Servicios</a>
+                        <a class="text-[#0d121b] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                            href="#">Clientes</a>
+                        <a class="text-[#0d121b] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                            href="#">Contacto</a>
+                    </div>
+                    <button
+                        class="flex cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-6 bg-primary text-white text-sm font-bold shadow-md hover:bg-blue-700 transition-colors">
+                        <span class="truncate">Cotizar</span>
+                    </button>
+                </nav>
+                <button class="lg:hidden text-[#0d121b] dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
+        <!-- Hero Section -->
+        <div class="relative flex min-h-[600px] flex-col justify-center items-center bg-cover bg-center bg-no-repeat px-4 py-20"
+            data-alt="Large commercial cargo truck driving on a highway at sunset near Lima logistics center"
+            style='background-image: linear-gradient(rgba(16, 22, 34, 0.7) 0%, rgba(16, 22, 34, 0.8) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuA9PbhoT-pBn50imC1Lbn3K3zZzYnZOsyWEapuHN-yD1_6kEFBLwBsjoApSwCkEPau7UWK_A9_dUZNsCdEbDY9f3kAIervdnQrPXZBavpLgxcGCbjrAPe3V9G8EV7npbXjpX77dQl0jy3ND5GJEeq5a2Jy0ciA24ub_kW5NUW7fk6MNKkN0_L7lougORO5mUHSoNQuik20teBJkyZfntdvA4G6apONvifceqxDxmeaQmNAFh-6u1hwKa4RpsFMGuqTkpCkbGrofnl4");'>
+            <div class="layout-content-container flex flex-col max-w-[960px] text-center items-center gap-6">
+                <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-[-0.033em]">
+                    Excelencia en Transporte y Distribución de Carga
+                </h1>
+                <h2 class="text-gray-200 text-lg md:text-xl font-normal max-w-[720px]">
+                    Soluciones logísticas B2B de alto nivel para cadenas de suministro exigentes en Lima y Callao.
+                </h2>
+                <div class="pt-4">
+                    <button
+                        class="flex min-w-[160px] cursor-pointer items-center justify-center rounded h-12 px-8 bg-primary text-white text-base font-bold hover:bg-blue-600 hover:shadow-lg transition-all">
+                        <span class="truncate">Solicitar Propuesta</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Quiénes Somos Section -->
+        <div class="w-full bg-background-light dark:bg-background-dark py-16 px-4 md:px-20 lg:px-40">
+            <div class="mx-auto max-w-[960px] flex flex-col gap-10">
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-[#0d121b] dark:text-white text-3xl font-bold leading-tight max-w-[720px]">
+                        Quiénes Somos
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-base font-normal max-w-[720px]">
+                        Más que un proveedor, somos su socio estratégico en logística, garantizando confiabilidad y
+                        experiencia en cada entrega. Operamos con los más altos estándares de calidad para asegurar que
+                        su negocio nunca se detenga.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        class="flex flex-col gap-4 rounded-xl border border-[#cfd7e7] dark:border-gray-800 bg-white dark:bg-[#1a2230] p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="text-primary bg-primary/10 w-fit p-3 rounded-full">
+                            <span class="material-symbols-outlined text-[32px]">verified</span>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <h3 class="text-[#0d121b] dark:text-white text-lg font-bold">Confiabilidad Operativa</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Procesos robustos certificados y
+                                auditables para asegurar el cumplimiento del 100% en sus entregas.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-col gap-4 rounded-xl border border-[#cfd7e7] dark:border-gray-800 bg-white dark:bg-[#1a2230] p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="text-primary bg-primary/10 w-fit p-3 rounded-full">
+                            <span class="material-symbols-outlined text-[32px]">domain</span>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <h3 class="text-[#0d121b] dark:text-white text-lg font-bold">Experiencia en B2B</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Conocimiento profundo de las necesidades
+                                corporativas, atendiendo a grandes empresas en Lima y provincias.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Capacidad Operativa Section -->
+        <div
+            class="w-full bg-white dark:bg-[#151c2b] py-16 px-4 md:px-20 lg:px-40 border-y border-[#e7ebf3] dark:border-gray-800">
+            <div class="mx-auto max-w-[960px] flex flex-col gap-10">
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-[#0d121b] dark:text-white text-3xl font-bold leading-tight">
+                        Capacidad Operativa
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-base font-normal max-w-[720px]">
+                        Infraestructura flexible diseñada para adaptarse a la demanda de su negocio.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Item 1 -->
+                    <div
+                        class="group flex flex-col gap-4 p-5 rounded-lg bg-background-light dark:bg-[#1a2230] hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-4xl">local_shipping</span>
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-[#0d121b] dark:text-white text-lg font-bold">Flota Diversificada</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Desde unidades ligeras de 2T hasta
+                                tráilers de transporte pesado.</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div
+                        class="group flex flex-col gap-4 p-5 rounded-lg bg-background-light dark:bg-[#1a2230] hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-4xl">map</span>
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-[#0d121b] dark:text-white text-lg font-bold">Cobertura Total</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Operaciones concentradas en Lima y
+                                Callao con alcance nacional.</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div
+                        class="group flex flex-col gap-4 p-5 rounded-lg bg-background-light dark:bg-[#1a2230] hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-4xl">hub</span>
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-[#0d121b] dark:text-white text-lg font-bold">Flexibilidad</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Adaptabilidad ante picos de demanda
+                                estacional o campañas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modelo de Trabajo (4 Steps) -->
+        <div class="w-full bg-background-light dark:bg-background-dark py-16 px-4 md:px-20 lg:px-40">
+            <div class="mx-auto max-w-[960px] flex flex-col gap-12">
+                <div class="text-center">
+                    <h2 class="text-[#0d121b] dark:text-white text-3xl font-bold mb-4">Nuestro Modelo de Trabajo</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Un proceso estructurado para garantizar la excelencia.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
+                    <!-- Step 1 -->
+                    <div
+                        class="flex flex-col items-center text-center gap-4 relative p-4 bg-white dark:bg-[#1a2230] rounded-lg shadow-sm">
+                        <div
+                            class="size-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold">
+                            1</div>
+                        <h3 class="font-bold text-[#0d121b] dark:text-white">Planificación Estratégica</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Análisis de ruta y carga.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div
+                        class="flex flex-col items-center text-center gap-4 relative p-4 bg-white dark:bg-[#1a2230] rounded-lg shadow-sm">
+                        <div
+                            class="size-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold">
+                            2</div>
+                        <h3 class="font-bold text-[#0d121b] dark:text-white">Ejecución Operativa</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Despliegue de flota y personal.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div
+                        class="flex flex-col items-center text-center gap-4 relative p-4 bg-white dark:bg-[#1a2230] rounded-lg shadow-sm">
+                        <div
+                            class="size-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold">
+                            3</div>
+                        <h3 class="font-bold text-[#0d121b] dark:text-white">Monitoreo Real-Time</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Seguimiento constante GPS.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div
+                        class="flex flex-col items-center text-center gap-4 relative p-4 bg-white dark:bg-[#1a2230] rounded-lg shadow-sm">
+                        <div
+                            class="size-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold">
+                            4</div>
+                        <h3 class="font-bold text-[#0d121b] dark:text-white">Control Documentario</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Gestión de POD y cierre.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Control y Seguimiento -->
+        <div class="w-full bg-[#101622] py-20 px-4 md:px-20 lg:px-40 text-white">
+            <div class="mx-auto max-w-[960px] flex flex-col gap-10">
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-white text-3xl font-bold leading-tight">
+                        Control y Seguimiento
+                    </h2>
+                    <p class="text-gray-400 text-base font-normal max-w-[720px]">
+                        Tecnología aplicada a la seguridad de su carga.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="flex flex-col gap-3 p-6 rounded bg-white/5 border border-white/10 hover:border-primary/50 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-4xl">satellite_alt</span>
+                        <h3 class="text-lg font-bold">Monitoreo GPS</h3>
+                        <p class="text-gray-400 text-sm">Visibilidad total de su mercadería 24/7 con reportes de estado.
+                        </p>
+                    </div>
+                    <div
+                        class="flex flex-col gap-3 p-6 rounded bg-white/5 border border-white/10 hover:border-primary/50 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-4xl">security</span>
+                        <h3 class="text-lg font-bold">Seguro de Carga</h3>
+                        <p class="text-gray-400 text-sm">Pólizas de protección integral contra todo riesgo durante el
+                            traslado.</p>
+                    </div>
+                    <div
+                        class="flex flex-col gap-3 p-6 rounded bg-white/5 border border-white/10 hover:border-primary/50 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-4xl">description</span>
+                        <h3 class="text-lg font-bold">Gestión POD</h3>
+                        <p class="text-gray-400 text-sm">Digitalización y entrega eficiente de pruebas de entrega y
+                            conformidades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sectores Atendidos & Cumplimiento -->
+        <div class="w-full bg-white dark:bg-[#151c2b] py-16 px-4 md:px-20 lg:px-40">
+            <div class="mx-auto max-w-[960px] grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Sectores -->
+                <div class="flex flex-col gap-6">
+                    <h2 class="text-[#0d121b] dark:text-white text-2xl font-bold">Sectores Atendidos</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="p-4 bg-background-light dark:bg-[#1a2230] rounded border border-[#e7ebf3] dark:border-gray-800 text-center">
+                            <span class="material-symbols-outlined text-gray-500 mb-2">storefront</span>
+                            <h4 class="font-bold text-sm text-[#0d121b] dark:text-white">Retail</h4>
+                        </div>
+                        <div
+                            class="p-4 bg-background-light dark:bg-[#1a2230] rounded border border-[#e7ebf3] dark:border-gray-800 text-center">
+                            <span class="material-symbols-outlined text-gray-500 mb-2">shopping_cart</span>
+                            <h4 class="font-bold text-sm text-[#0d121b] dark:text-white">Consumo Masivo</h4>
+                        </div>
+                        <div
+                            class="p-4 bg-background-light dark:bg-[#1a2230] rounded border border-[#e7ebf3] dark:border-gray-800 text-center">
+                            <span class="material-symbols-outlined text-gray-500 mb-2">forklift</span>
+                            <h4 class="font-bold text-sm text-[#0d121b] dark:text-white">Distribución</h4>
+                        </div>
+                        <div
+                            class="p-4 bg-background-light dark:bg-[#1a2230] rounded border border-[#e7ebf3] dark:border-gray-800 text-center">
+                            <span class="material-symbols-outlined text-gray-500 mb-2">inventory_2</span>
+                            <h4 class="font-bold text-sm text-[#0d121b] dark:text-white">3PL</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cumplimiento -->
+                <div class="flex flex-col gap-6">
+                    <h2 class="text-[#0d121b] dark:text-white text-2xl font-bold">Cumplimiento y Seguridad</h2>
+                    <div class="flex gap-4 items-start">
+                        <div class="h-full w-1 bg-primary rounded-full"></div>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            En REXA, la seguridad no es negociable. Contamos con rigurosos protocolos de gestión de
+                            riesgos para proteger su patrimonio y reputación.
+                        </p>
+                    </div>
+                    <div class="h-48 w-full rounded-lg bg-cover bg-center"
+                        data-alt="Industrial safety checklist clipboard with hard hat on a desk"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACNr7ul1Z1QZ-Pm6qBeSPhfT03XcQ2I4LRiwlGRdTAM2kniZjJDtFMK6AKqmH-zOvPi5bz3hbRFmJ58gxnffJ-8q_iDD3AT8R174Q0lnpQo9hdAfgGw1OneWhj0p4LtNERHqsvHeSyrFfWUJb7aOjTeVcMxnBjBspfDg-o1_1PkjJYv7OZiqUt3f_iZGklyKMinEogkcMUnxZfdTqbIDhNmPMsniRq4u-j_UKKn-llbkecEZGLHUvli5SrWLJlfXhxeLK-CMXugS0");'>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CTA Section -->
+        <div class="w-full bg-primary py-16 px-4">
+            <div
+                class="mx-auto max-w-[960px] flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-white text-3xl font-black tracking-tight">Optimice su cadena de suministro hoy</h2>
+                    <p class="text-blue-100 text-lg">Soluciones a medida para empresas líderes.</p>
+                </div>
+                <button
+                    class="bg-white text-primary px-8 py-3 rounded font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg whitespace-nowrap">
+                    Contáctenos
+                </button>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="w-full bg-[#0d121b] text-white pt-16 pb-8 px-4 md:px-20 lg:px-40 border-t border-gray-800">
+            <div class="mx-auto max-w-[960px] grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-center gap-2 text-white">
+                        <span class="material-symbols-outlined text-2xl">local_shipping</span>
+                        <span class="font-bold text-xl">REXA</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Operador Logístico S.A.C.<br />
+                        Comprometidos con la excelencia en el transporte de carga B2B en Perú.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h3 class="font-bold text-lg">Enlaces</h3>
+                    <div class="flex flex-col gap-2 text-gray-400 text-sm">
+                        <a class="hover:text-primary transition-colors" href="#">Nosotros</a>
+                        <a class="hover:text-primary transition-colors" href="#">Servicios</a>
+                        <a class="hover:text-primary transition-colors" href="#">Cobertura</a>
+                        <a class="hover:text-primary transition-colors" href="#">Cotizar</a>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h3 class="font-bold text-lg">Contacto</h3>
+                    <div class="flex flex-col gap-3 text-gray-400 text-sm">
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-sm mt-1">location_on</span>
+                            <span>Av. Elmer Faucett, Callao,<br />Lima, Perú</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-sm">mail</span>
+                            <a class="hover:text-white" href="mailto:contacto@rexa.pe">contacto@rexa.pe</a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-sm">call</span>
+                            <span>(01) 555-0123</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="mx-auto max-w-[960px] border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <p>© 2023 REXA Operador Logístico S.A.C. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-white" href="#">Privacidad</a>
+                    <a class="hover:text-white" href="#">Términos</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
