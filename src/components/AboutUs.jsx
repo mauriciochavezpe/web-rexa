@@ -56,26 +56,26 @@ export function AboutUs() {
                     <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-4">
                             <img
-                                src="/8.jpeg"
+                                src="/17.jpeg"
                                 alt="Personal REXA con camión"
-                                className="w-full h-48 object-cover rounded-xl shadow-lg"
+                                className="w-full h-64 object-cover rounded-2xl shadow-lg"
                             />
                             <img
                                 src="/3.jpeg"
                                 alt="Mercadería lista para distribución"
-                                className="w-full h-32 object-cover rounded-xl shadow-lg"
+                                className="w-full h-40 object-cover rounded-2xl shadow-lg"
                             />
                         </div>
                         <div className="space-y-4 mt-8">
                             <img
-                                src="/4.jpeg"
+                                src="/16.png"
                                 alt="Flota REXA"
-                                className="w-full h-32 object-cover rounded-xl shadow-lg"
-                            />
+                                   className="w-full h-64 object-contain md:object-cover rounded-2xl shadow-lg"
+                                />
                             <img
-                                src="/6.jpeg"
+                                src="/18.jpg"
                                 alt="Equipo REXA"
-                                className="w-full h-48 object-cover rounded-xl shadow-lg"
+                                className="w-full h-40 object-cover rounded-2xl shadow-lg"
                             />
                         </div>
                     </div>

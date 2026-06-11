@@ -3,7 +3,7 @@ import React from 'react';
 export function Hero() {
     return (
         <section
-            className="relative min-h-[600px] flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat px-4 py-20"
+            className="relative min-h-[600px] flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat px-4 py-20 rounded-3xl overflow-hidden m-6"
             style={{
                 backgroundImage: `linear-gradient(rgba(16, 22, 34, 0.75) 0%, rgba(16, 22, 34, 0.85) 100%), url("/6.jpeg")`
             }}
@@ -22,7 +22,7 @@ export function Hero() {
                 <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
                     Excelencia en Transporte y
                     <br className="hidden sm:block" />
-                    <span className="text-rexa-blue">Distribución de Carga</span>
+                    <span className="text-rexa-blue"> Distribución de Carga</span>
                 </h1>
 
                 {/* Subtitle */}
